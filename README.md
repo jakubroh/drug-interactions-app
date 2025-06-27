@@ -1,36 +1,106 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kontrola interakcí léků
 
-## Getting Started
+Moderní webová aplikace pro kontrolu interakcí mezi léky pomocí AI. Aplikace pomáhá pacientům být lépe připraveni na konzultace s lékaři.
 
-First, run the development server:
+## Funkce
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- ✅ **Formulář pro zadávání léků** - název, dávka, frekvence užívání
+- ✅ **Seznam aktuálních léků** - možnost editace a mazání
+- ✅ **Analýza interakcí** - pomocí Claude AI API
+- ✅ **Report pro lékaře** - strukturovaný výstup s doporučeními
+- ✅ **Lokální uložení** - data se ukládají do localStorage
+- ✅ **Responzivní design** - funguje na všech zařízeních
+- ✅ **Bezpečnostní upozornění** - důraz na lékařskou konzultaci
+
+## Technický stack
+
+- **Frontend**: React + TypeScript + Tailwind CSS
+- **Backend**: Next.js API routes
+- **AI API**: Anthropic Claude API
+- **Formuláře**: React Hook Form + Zod validace
+- **Ikony**: Lucide React
+
+## Instalace a spuštění
+
+1. **Klonujte repozitář**
+   ```bash
+   git clone <repository-url>
+   cd drug-interactions
+   ```
+
+2. **Nainstalujte závislosti**
+   ```bash
+   npm install
+   ```
+
+3. **Nakonfigurujte API klíč**
+   
+   Vytvořte soubor `.env.local` v kořenovém adresáři:
+   ```bash
+   # Claude API klíč
+   ANTHROPIC_API_KEY=your_claude_api_key_here
+   ```
+   
+   Získejte API klíč na [Anthropic Console](https://console.anthropic.com/)
+
+4. **Spusťte vývojový server**
+   ```bash
+   npm run dev
+   ```
+
+5. **Otevřete aplikaci**
+   
+   Aplikace bude dostupná na [http://localhost:3000](http://localhost:3000)
+
+## Použití
+
+1. **Přidání léků**: Klikněte na "Přidat nový lék" a vyplňte formulář
+2. **Správa léků**: Upravte nebo smažte léky pomocí tlačítek v tabulce
+3. **Analýza**: Klikněte na "Analyzovat interakce" pro AI analýzu
+4. **Report**: Prohlédněte si výsledky a vytiskněte je pro lékaře
+
+## Bezpečnostní upozornění
+
+⚠️ **DŮLEŽITÉ**: Tato aplikace slouží pouze jako informativní nástroj a nenahrazuje lékařskou konzultaci. Vždy se poraďte se svým lékařem nebo lékárníkem před jakýmkoliv změnami v užívání léků.
+
+## Vývoj
+
+### Struktura projektu
+
+```
+src/
+├── app/
+│   ├── api/analyze/route.ts    # Claude API endpoint
+│   ├── layout.tsx              # Root layout
+│   └── page.tsx                # Hlavní stránka
+├── components/
+│   ├── MedicationForm.tsx      # Formulář pro léky
+│   ├── MedicationList.tsx      # Seznam léků
+│   └── InteractionReport.tsx   # Výsledky analýzy
+├── types/
+│   └── index.ts                # TypeScript interfaces
+└── utils/
+    └── storage.ts              # localStorage utility
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Přidání nových funkcí
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Vytvořte novou komponentu v `src/components/`
+2. Přidejte TypeScript typy do `src/types/index.ts`
+3. Aktualizujte hlavní stránku v `src/app/page.tsx`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Deployment
 
-## Learn More
+Aplikace je připravena pro deployment na Vercel:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Licence
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+MIT License - viz soubor LICENSE pro detaily.
 
-## Deploy on Vercel
+## Podpora
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Pro podporu nebo nahlášení chyb vytvořte issue v GitHub repozitáři.
