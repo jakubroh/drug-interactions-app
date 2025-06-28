@@ -70,6 +70,36 @@ export default function InteractionReport({ report, medications, onPrint }: Inte
         </div>
       </div>
 
+      {/* Neznámé léky */}
+      {report.unknownMedications && report.unknownMedications.length > 0 && (
+        <div className="mb-6">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">
+            Neznámé léky
+          </h3>
+          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+            <div className="flex items-start gap-3 mb-3">
+              <AlertTriangle className="text-yellow-600 mt-0.5 flex-shrink-0" size={20} />
+              <div>
+                <p className="text-yellow-800 text-sm font-medium mb-2">
+                  Následující léky nebyly rozpoznány:
+                </p>
+              </div>
+            </div>
+            <ul className="space-y-2">
+              {report.unknownMedications.map((med, index) => (
+                <li key={index} className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 bg-yellow-600 rounded-full mt-2 flex-shrink-0" />
+                  <div>
+                    <span className="text-yellow-800 text-sm font-medium">{med.name}</span>
+                    <p className="text-yellow-700 text-sm">{med.note}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
+
       {/* Interakce */}
       {report.interactions.length > 0 && (
         <div className="mb-6">
@@ -179,13 +209,8 @@ export default function InteractionReport({ report, medications, onPrint }: Inte
       {/* Footer */}
       <div className="border-t border-gray-200 pt-4 mt-6">
         <p className="text-xs text-gray-500 text-center">
-          Tato aplikace běží díky Claude API. 
-          Pokud vám pomohla, zvažte příspěvek na další provoz na účet 198912987/0300 nebo coff.ee/jakubroh
-          <br />
           Tato analýza byla generována pomocí AI a slouží pouze jako informativní materiál. 
           Vždy se poraďte s odborným lékařem.
-          <br />
-          Vytvořil Jakub Roh (rohja@email.cz)
         </p>
       </div>
     </div>

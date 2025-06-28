@@ -14,7 +14,13 @@ export interface Interaction {
   whatToDo: string;
 }
 
+export interface UnknownMedication {
+  name: string;
+  note: string;
+}
+
 export interface InteractionReport {
+  unknownMedications: UnknownMedication[];
   interactions: Interaction[];
   recommendations: string[];
   questionsForDoctor: string[];
