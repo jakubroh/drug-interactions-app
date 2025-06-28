@@ -179,8 +179,13 @@ export default function InteractionReport({ report, medications, onPrint }: Inte
       {/* Footer */}
       <div className="border-t border-gray-200 pt-4 mt-6">
         <p className="text-xs text-gray-500 text-center">
+          Tato aplikace běží díky Claude API. 
+          Pokud vám pomohla, zvažte příspěvek na další provoz na účet 198912987/0300 nebo coff.ee/jakubroh
+          <br />
           Tato analýza byla generována pomocí AI a slouží pouze jako informativní materiál. 
           Vždy se poraďte s odborným lékařem.
+          <br />
+          Vytvořil Jakub Roh (rohja@email.cz)
         </p>
       </div>
     </div>
