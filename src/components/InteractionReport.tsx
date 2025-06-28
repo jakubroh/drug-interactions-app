@@ -1,6 +1,6 @@
 'use client';
 
-import { Printer, AlertTriangle, AlertCircle, Info, CheckCircle } from 'lucide-react';
+import { Printer, AlertTriangle, AlertCircle, CheckCircle } from 'lucide-react';
 import { InteractionReport as ReportType } from '@/types';
 
 interface InteractionReportProps {

@@ -15,7 +15,7 @@ export const loadMedications = (): Medication[] => {
       try {
         const medications = JSON.parse(stored);
         // Konvertovat stringy zpět na Date objekty
-        return medications.map((med: any) => ({
+        return medications.map((med: { createdAt: string; updatedAt: string; [key: string]: unknown }) => ({
           ...med,
           createdAt: new Date(med.createdAt),
           updatedAt: new Date(med.updatedAt),
